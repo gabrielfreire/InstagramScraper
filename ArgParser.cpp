@@ -10,7 +10,7 @@ void show_arguments(int argc, char* argv[]) {
 void show_usage() {
 
 	std::cout << "Usage: \n";
-	std::cout << "\tInstagramScraper <profile_name1> <profile_name2> ...";
+	std::cout << "\tInstagramScraper <profile_name>";
 
 }
 std::vector<std::string> parse_args(int argc, char* argv[]) {
