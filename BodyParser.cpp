@@ -4,7 +4,7 @@
 
 namespace html_parser {
 
-	void extractMetas(GumboNode* node, std::vector<GumboNode>& metas) {
+	void extractMetaElements(GumboNode* node, std::vector<GumboNode>& metas) {
 		if (node->type != GUMBO_NODE_ELEMENT) {
 			return;
 		}
@@ -14,7 +14,7 @@ namespace html_parser {
 		}
 		GumboVector* children = &node->v.element.children;
 		for (unsigned int i = 0; i < children->length; i++) {
-			extractMetas(static_cast<GumboNode*>(children->data[i]), metas);
+			extractMetaElements(static_cast<GumboNode*>(children->data[i]), metas);
 		}
 	}
 
@@ -35,7 +35,7 @@ namespace html_parser {
 			std::vector<GumboNode> metas;
 			std::vector<std::string> contents;
 
-			extractMetas(out->root, metas);
+			extractMetaElements(out->root, metas);
 
 			extractMetaContent(metas, contents);
 

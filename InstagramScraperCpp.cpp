@@ -12,10 +12,10 @@ int main(int argc, char* argv[])
 {
 	std::vector<std::string> _args = parse_args(argc, argv);
 	if (_args.size() > 0) {
-		std::string html_body = request::get_html_body(_args);
-		std::string content = html_parser::parse(html_body);
-		content = content.substr(0, content.find(' ', 0));
-		std::cout << "Profile: " << _args[0] << "\n";
+		std::string html_body	= request::get_html_body(_args);
+		std::string content		= html_parser::parse(html_body);
+		content					= content.substr(0, content.find(' ', 0));
+		std::cout << "Profile:        " << _args[0] << "\n";
 		std::cout << "Follower Count: " << content << "\n";
 	}
 	return 0;
